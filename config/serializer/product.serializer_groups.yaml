@@ -1,0 +1,22 @@
+App\Entity\Product:
+    attributes:
+        id:
+            groups: ['product:read']
+        category:
+            groups: ['product:read', 'product:write']
+        name:
+            groups: ['product:read', 'product:write']
+        sku:
+            groups: ['product:read', 'product:write']
+        description:
+            groups: ['product:read', 'product:write']
+        price:
+            groups: ['product:read', 'product:write']
+        stock:
+            groups: ['product:read', 'product:write']
+        isPublished:
+            groups: ['product:read', 'product:write']
+        createdAt:
+            groups: ['product:read']
+        updatedAt:
+            groups: ['product:read']

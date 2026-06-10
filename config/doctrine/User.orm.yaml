@@ -1,0 +1,34 @@
+App\Entity\User:
+    type: entity
+    table: app_user
+    repositoryClass: App\Repository\UserRepository
+    uniqueConstraints:
+        uniq_app_user_email:
+            columns: [email]
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        email:
+            type: string
+            length: 180
+        roles:
+            type: json
+        password:
+            type: string
+            length: 255
+        firstName:
+            type: string
+            length: 100
+        lastName:
+            type: string
+            length: 100
+        isActive:
+            type: boolean
+        createdAt:
+            type: datetime_immutable
+        updatedAt:
+            type: datetime_immutable
+            nullable: true

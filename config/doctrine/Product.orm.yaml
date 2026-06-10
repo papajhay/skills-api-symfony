@@ -1,0 +1,47 @@
+App\Entity\Product:
+    type: entity
+    table: product
+    repositoryClass: App\Repository\ProductRepository
+    uniqueConstraints:
+        uniq_product_sku:
+            columns: [sku]
+    indexes:
+        idx_product_category_id:
+            columns: [category_id]
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 150
+        sku:
+            type: string
+            length: 64
+        description:
+            type: text
+            nullable: true
+        price:
+            type: decimal
+            precision: 10
+            scale: 2
+        stock:
+            type: integer
+        isPublished:
+            type: boolean
+        createdAt:
+            type: datetime_immutable
+        updatedAt:
+            type: datetime_immutable
+            nullable: true
+    manyToOne:
+        category:
+            targetEntity: App\Entity\Category
+            inversedBy: products
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+                nullable: false
+                onDelete: CASCADE

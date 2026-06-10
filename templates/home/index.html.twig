@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <section class="panel">
+        <div class="eyebrow">Symfony 7 web baseline</div>
+        <h1>{{ title }}</h1>
+        <p class="muted">
+            Twig, Doctrine ORM, and MySQL are wired through YAML configuration, with a simple homepage route and
+            baseline entities for users, categories, and products.
+        </p>
+        <p>
+            Start with <code>php bin/console doctrine:migrations:migrate</code> after your database is configured.
+        </p>
+    </section>
+{% endblock %}

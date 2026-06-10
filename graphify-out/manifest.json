@@ -1,0 +1,407 @@
+{
+  "/var/www/skills-api-symfony/bin/console": {
+    "mtime": 1780473258.5488691,
+    "ast_hash": "96a0eb72cd9628f524991f27a9fc61b1",
+    "semantic_hash": "96a0eb72cd9628f524991f27a9fc61b1"
+  },
+  "/var/www/skills-api-symfony/composer.json": {
+    "mtime": 1780909853.693955,
+    "ast_hash": "7ce1418c38293af2e93778daf7725094",
+    "semantic_hash": "7ce1418c38293af2e93778daf7725094"
+  },
+  "/var/www/skills-api-symfony/config/bootstrap.php": {
+    "mtime": 1780473205.7408683,
+    "ast_hash": "53e7d373d313c2d2aca241843b2701fc",
+    "semantic_hash": "53e7d373d313c2d2aca241843b2701fc"
+  },
+  "/var/www/skills-api-symfony/config/bundles.php": {
+    "mtime": 1780909761.7579536,
+    "ast_hash": "3e73802670e2f4fe039cca556813826b",
+    "semantic_hash": "3e73802670e2f4fe039cca556813826b"
+  },
+  "/var/www/skills-api-symfony/config/preload.php": {
+    "mtime": 1780474975.7248647,
+    "ast_hash": "5634a46e4fafb61762215b64edeff145",
+    "semantic_hash": "5634a46e4fafb61762215b64edeff145"
+  },
+  "/var/www/skills-api-symfony/config/reference.php": {
+    "mtime": 1780909766.7859535,
+    "ast_hash": "9b5ef1850675bde65a41ec6604cfda1d",
+    "semantic_hash": "9b5ef1850675bde65a41ec6604cfda1d"
+  },
+  "/var/www/skills-api-symfony/migrations/Version20260603000000.php": {
+    "mtime": 1780473161.9568691,
+    "ast_hash": "16b568da8e2f727ab49e0d4268773b4c",
+    "semantic_hash": "16b568da8e2f727ab49e0d4268773b4c"
+  },
+  "/var/www/skills-api-symfony/migrations/Version20260605081127.php": {
+    "mtime": 1780647087.9441686,
+    "ast_hash": "7829475fc74cb4026e38648bd60c3a09",
+    "semantic_hash": "7829475fc74cb4026e38648bd60c3a09"
+  },
+  "/var/www/skills-api-symfony/public/index.php": {
+    "mtime": 1780473155.2128692,
+    "ast_hash": "0c4a880075ac86aeb29515f7a798afb0",
+    "semantic_hash": "0c4a880075ac86aeb29515f7a798afb0"
+  },
+  "/var/www/skills-api-symfony/src/Controller/HomeController.php": {
+    "mtime": 1780473155.8368692,
+    "ast_hash": "004405ac9419533ec8b78b57a94ed3f8",
+    "semantic_hash": "004405ac9419533ec8b78b57a94ed3f8"
+  },
+  "/var/www/skills-api-symfony/src/DataFixtures/AppFixtures.php": {
+    "mtime": 1780909761.7579536,
+    "ast_hash": "809fe1e44211290fc555ffb128f72259",
+    "semantic_hash": "809fe1e44211290fc555ffb128f72259"
+  },
+  "/var/www/skills-api-symfony/src/DataFixtures/CategoryFixture.php": {
+    "mtime": 1780909565.3779259,
+    "ast_hash": "96a872690c24213d76f76a723655fb8d",
+    "semantic_hash": "96a872690c24213d76f76a723655fb8d"
+  },
+  "/var/www/skills-api-symfony/src/DataFixtures/ProductFixture.php": {
+    "mtime": 1780910913.0259526,
+    "ast_hash": "2b7d1f978e341427f8d9b7440f7e5a89",
+    "semantic_hash": "2b7d1f978e341427f8d9b7440f7e5a89"
+  },
+  "/var/www/skills-api-symfony/src/Entity/Category.php": {
+    "mtime": 1780908386.1699545,
+    "ast_hash": "07d4f2be4a4bc5d45e6a8c5d61bcca2d",
+    "semantic_hash": "07d4f2be4a4bc5d45e6a8c5d61bcca2d"
+  },
+  "/var/www/skills-api-symfony/src/Entity/Product.php": {
+    "mtime": 1780908386.1699545,
+    "ast_hash": "fed206d482ccf27296e45712fe37c0df",
+    "semantic_hash": "fed206d482ccf27296e45712fe37c0df"
+  },
+  "/var/www/skills-api-symfony/src/Entity/RefreshToken.php": {
+    "mtime": 1779356031.7340288,
+    "ast_hash": "70bcfe516e01ac478167cf530d38c782",
+    "semantic_hash": "70bcfe516e01ac478167cf530d38c782"
+  },
+  "/var/www/skills-api-symfony/src/Entity/User.php": {
+    "mtime": 1780477306.2368681,
+    "ast_hash": "cefee3a9e524f9d00a07b1a93ae9e8fc",
+    "semantic_hash": "cefee3a9e524f9d00a07b1a93ae9e8fc"
+  },
+  "/var/www/skills-api-symfony/src/Kernel.php": {
+    "mtime": 1780479306.5088685,
+    "ast_hash": "e1235ea32e7597d77736bd4f9afe533f",
+    "semantic_hash": "e1235ea32e7597d77736bd4f9afe533f"
+  },
+  "/var/www/skills-api-symfony/src/Repository/CategoryRepository.php": {
+    "mtime": 1780473158.848869,
+    "ast_hash": "2d4a9ae3f28ceb8093f0f4faf6b9ac0a",
+    "semantic_hash": "2d4a9ae3f28ceb8093f0f4faf6b9ac0a"
+  },
+  "/var/www/skills-api-symfony/src/Repository/ProductRepository.php": {
+    "mtime": 1780473159.2608693,
+    "ast_hash": "91356763022b59d106c61a79f381811d",
+    "semantic_hash": "91356763022b59d106c61a79f381811d"
+  },
+  "/var/www/skills-api-symfony/src/Repository/UserRepository.php": {
+    "mtime": 1780473158.2208693,
+    "ast_hash": "c9196a868d086c7d87516d15956dc98d",
+    "semantic_hash": "c9196a868d086c7d87516d15956dc98d"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/apiprocessing-project/SKILL.md": {
+    "mtime": 1779873199.712408,
+    "ast_hash": "4bd02ad8f3329690669076012966d49f",
+    "semantic_hash": "4bd02ad8f3329690669076012966d49f"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/apiprocessing-project/references/api-resources.md": {
+    "mtime": 1780301679.2456875,
+    "ast_hash": "7e2635de8dd15b0f0a8efbd163a59131",
+    "semantic_hash": "7e2635de8dd15b0f0a8efbd163a59131"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/apiprocessing-project/references/bootstrap-symfony.md": {
+    "mtime": 1779873200.500408,
+    "ast_hash": "7c7256f6f0ff95ef5b7cd8e0e751e8db",
+    "semantic_hash": "7c7256f6f0ff95ef5b7cd8e0e751e8db"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/apiprocessing-project/references/jwt.md": {
+    "mtime": 1779873201.432408,
+    "ast_hash": "ca7c296f837dd2dd25f67f7ffb421534",
+    "semantic_hash": "ca7c296f837dd2dd25f67f7ffb421534"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/apiprocessing-project/references/security.md": {
+    "mtime": 1779873202.308408,
+    "ast_hash": "ce6969e7d0bf9c468a5bf31a271709e9",
+    "semantic_hash": "ce6969e7d0bf9c468a5bf31a271709e9"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/apiprocessing-project/references/serializer-groups.md": {
+    "mtime": 1780303037.7336857,
+    "ast_hash": "ce13383f1916a1069d2bc6cdd74189ac",
+    "semantic_hash": "ce13383f1916a1069d2bc6cdd74189ac"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/apiprocessing-project/references/uploads.md": {
+    "mtime": 1780305186.5776858,
+    "ast_hash": "c21c9e677fefcb7162b02afc0450769c",
+    "semantic_hash": "c21c9e677fefcb7162b02afc0450769c"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/easyadmin-project/SKILL.md": {
+    "mtime": 1780394603.4304755,
+    "ast_hash": "36d66f545a02ecdd710242bb9aee65f3",
+    "semantic_hash": "36d66f545a02ecdd710242bb9aee65f3"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/easyadmin-project/references/crud.md": {
+    "mtime": 1779876676.4684086,
+    "ast_hash": "48a60f429c44167caeb54e42f79c0beb",
+    "semantic_hash": "48a60f429c44167caeb54e42f79c0beb"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/easyadmin-project/references/dashboard.md": {
+    "mtime": 1779876675.7324088,
+    "ast_hash": "0e94a9cee6a9966167536d9b488bacb1",
+    "semantic_hash": "0e94a9cee6a9966167536d9b488bacb1"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/easyadmin-project/references/entities.md": {
+    "mtime": 1779876678.2324088,
+    "ast_hash": "4a46ee8e8c2bd75c2996220a715599a6",
+    "semantic_hash": "4a46ee8e8c2bd75c2996220a715599a6"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/easyadmin-project/references/fields.md": {
+    "mtime": 1779876677.4484086,
+    "ast_hash": "e89b74a6ab1f3072b872834c2137a591",
+    "semantic_hash": "e89b74a6ab1f3072b872834c2137a591"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/easyadmin-project/references/security.md": {
+    "mtime": 1779876674.7324088,
+    "ast_hash": "d8a5be728feee209e7f38ed5791f7d56",
+    "semantic_hash": "d8a5be728feee209e7f38ed5791f7d56"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/symfony-baseline-project/SKILL.md": {
+    "mtime": 1780395275.9064763,
+    "ast_hash": "ac89fa886d12d523167d2a3901304bc4",
+    "semantic_hash": "ac89fa886d12d523167d2a3901304bc4"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/symfony-baseline-project/agents/openai.yaml": {
+    "mtime": 1780395277.5664763,
+    "ast_hash": "6f5aa50b0bcf42becd7500489d34b308",
+    "semantic_hash": "6f5aa50b0bcf42becd7500489d34b308"
+  },
+  "/var/www/skills-api-symfony/.codex/skills/symfony-baseline-project/references/bootstrap.md": {
+    "mtime": 1780395276.8464763,
+    "ast_hash": "9bf1a044859c800d4d3f117f1c3247c8",
+    "semantic_hash": "9bf1a044859c800d4d3f117f1c3247c8"
+  },
+  "/var/www/skills-api-symfony/.github/apiprocessing-project/SKILL.md": {
+    "mtime": 1780905643.0459542,
+    "ast_hash": "4bd02ad8f3329690669076012966d49f",
+    "semantic_hash": "4bd02ad8f3329690669076012966d49f"
+  },
+  "/var/www/skills-api-symfony/.github/apiprocessing-project/references/api-resources.md": {
+    "mtime": 1780905643.0579543,
+    "ast_hash": "7e2635de8dd15b0f0a8efbd163a59131",
+    "semantic_hash": "7e2635de8dd15b0f0a8efbd163a59131"
+  },
+  "/var/www/skills-api-symfony/.github/apiprocessing-project/references/bootstrap-symfony.md": {
+    "mtime": 1780905643.0579543,
+    "ast_hash": "7c7256f6f0ff95ef5b7cd8e0e751e8db",
+    "semantic_hash": "7c7256f6f0ff95ef5b7cd8e0e751e8db"
+  },
+  "/var/www/skills-api-symfony/.github/apiprocessing-project/references/jwt.md": {
+    "mtime": 1780905643.0619543,
+    "ast_hash": "ca7c296f837dd2dd25f67f7ffb421534",
+    "semantic_hash": "ca7c296f837dd2dd25f67f7ffb421534"
+  },
+  "/var/www/skills-api-symfony/.github/apiprocessing-project/references/security.md": {
+    "mtime": 1780905643.0619543,
+    "ast_hash": "ce6969e7d0bf9c468a5bf31a271709e9",
+    "semantic_hash": "ce6969e7d0bf9c468a5bf31a271709e9"
+  },
+  "/var/www/skills-api-symfony/.github/apiprocessing-project/references/serializer-groups.md": {
+    "mtime": 1780905643.0659542,
+    "ast_hash": "ce13383f1916a1069d2bc6cdd74189ac",
+    "semantic_hash": "ce13383f1916a1069d2bc6cdd74189ac"
+  },
+  "/var/www/skills-api-symfony/.github/apiprocessing-project/references/uploads.md": {
+    "mtime": 1780905643.0699542,
+    "ast_hash": "c21c9e677fefcb7162b02afc0450769c",
+    "semantic_hash": "c21c9e677fefcb7162b02afc0450769c"
+  },
+  "/var/www/skills-api-symfony/README.md": {
+    "mtime": 1780473143.1888692,
+    "ast_hash": "fcf965410d4b2763d271412b6ecfff3c",
+    "semantic_hash": "fcf965410d4b2763d271412b6ecfff3c"
+  },
+  "/var/www/skills-api-symfony/compose.override.yaml": {
+    "mtime": 1780474975.7608647,
+    "ast_hash": "6540a837fea2caa25e1ca5193c7e657b",
+    "semantic_hash": "6540a837fea2caa25e1ca5193c7e657b"
+  },
+  "/var/www/skills-api-symfony/compose.yaml": {
+    "mtime": 1780474975.7608647,
+    "ast_hash": "85a64c5ee8c0b3ddef65fbed74d85970",
+    "semantic_hash": "85a64c5ee8c0b3ddef65fbed74d85970"
+  },
+  "/var/www/skills-api-symfony/config/api_platform/resources/category.yaml": {
+    "mtime": 1780475555.8848684,
+    "ast_hash": "9a111ffa4ad726a878f841118c059d17",
+    "semantic_hash": "9a111ffa4ad726a878f841118c059d17"
+  },
+  "/var/www/skills-api-symfony/config/api_platform/resources/product.yaml": {
+    "mtime": 1780475554.5648685,
+    "ast_hash": "eb9d384f1d3f386e224796ba1264506e",
+    "semantic_hash": "eb9d384f1d3f386e224796ba1264506e"
+  },
+  "/var/www/skills-api-symfony/config/api_platform/resources/user.yaml": {
+    "mtime": 1780474448.956867,
+    "ast_hash": "8e46da1631910602e4c36509ece928a1",
+    "semantic_hash": "8e46da1631910602e4c36509ece928a1"
+  },
+  "/var/www/skills-api-symfony/config/doctrine/Category.orm.yaml": {
+    "mtime": 1780473152.5488691,
+    "ast_hash": "911e0b436ee3819471ca5f5cf30bb53e",
+    "semantic_hash": "911e0b436ee3819471ca5f5cf30bb53e"
+  },
+  "/var/www/skills-api-symfony/config/doctrine/Product.orm.yaml": {
+    "mtime": 1780473153.2568693,
+    "ast_hash": "08cd48fc908a1f0768dae74f0cc81c3e",
+    "semantic_hash": "08cd48fc908a1f0768dae74f0cc81c3e"
+  },
+  "/var/www/skills-api-symfony/config/doctrine/User.orm.yaml": {
+    "mtime": 1780473151.8768692,
+    "ast_hash": "11500484b454aa49381881c85b27dd1b",
+    "semantic_hash": "11500484b454aa49381881c85b27dd1b"
+  },
+  "/var/www/skills-api-symfony/config/packages/api_platform.yaml": {
+    "mtime": 1780904669.1339538,
+    "ast_hash": "ad2fac20e70fbc0dd31b5ad75f1a1eda",
+    "semantic_hash": "ad2fac20e70fbc0dd31b5ad75f1a1eda"
+  },
+  "/var/www/skills-api-symfony/config/packages/cache.yaml": {
+    "mtime": 1780474975.7248647,
+    "ast_hash": "b6b1efc4d1fc4a463de33ffde5495a05",
+    "semantic_hash": "b6b1efc4d1fc4a463de33ffde5495a05"
+  },
+  "/var/www/skills-api-symfony/config/packages/doctrine.yaml": {
+    "mtime": 1780908395.8619545,
+    "ast_hash": "1fefc03f577eb98cbea80dbb8c3ca1b5",
+    "semantic_hash": "1fefc03f577eb98cbea80dbb8c3ca1b5"
+  },
+  "/var/www/skills-api-symfony/config/packages/doctrine_migrations.yaml": {
+    "mtime": 1780473149.0568693,
+    "ast_hash": "d7b718574ad5e1ffb2d704c185055f12",
+    "semantic_hash": "d7b718574ad5e1ffb2d704c185055f12"
+  },
+  "/var/www/skills-api-symfony/config/packages/framework.yaml": {
+    "mtime": 1780473147.3088691,
+    "ast_hash": "23447b42d356ad96778d331ae87f1d16",
+    "semantic_hash": "23447b42d356ad96778d331ae87f1d16"
+  },
+  "/var/www/skills-api-symfony/config/packages/lexik_jwt_authentication.yaml": {
+    "mtime": 1780474441.5408669,
+    "ast_hash": "e13f6128a02135eef68a030a0e79d37e",
+    "semantic_hash": "e13f6128a02135eef68a030a0e79d37e"
+  },
+  "/var/www/skills-api-symfony/config/packages/nelmio_cors.yaml": {
+    "mtime": 1780474443.200867,
+    "ast_hash": "5de7049928637d64f836df8e954b988d",
+    "semantic_hash": "5de7049928637d64f836df8e954b988d"
+  },
+  "/var/www/skills-api-symfony/config/packages/property_info.yaml": {
+    "mtime": 1780474975.7448647,
+    "ast_hash": "974a0ce1b6fd72bf9cdc811034c43f4d",
+    "semantic_hash": "974a0ce1b6fd72bf9cdc811034c43f4d"
+  },
+  "/var/www/skills-api-symfony/config/packages/routing.yaml": {
+    "mtime": 1780473150.828869,
+    "ast_hash": "a8bc1d66c16e52fd48e7adfb86174815",
+    "semantic_hash": "a8bc1d66c16e52fd48e7adfb86174815"
+  },
+  "/var/www/skills-api-symfony/config/packages/security.yaml": {
+    "mtime": 1780646389.0761704,
+    "ast_hash": "26e359f65746d660494c400bfa284e42",
+    "semantic_hash": "26e359f65746d660494c400bfa284e42"
+  },
+  "/var/www/skills-api-symfony/config/packages/twig.yaml": {
+    "mtime": 1780473147.9128692,
+    "ast_hash": "615fc2e3327f58436d3e9e4f3026152c",
+    "semantic_hash": "615fc2e3327f58436d3e9e4f3026152c"
+  },
+  "/var/www/skills-api-symfony/config/packages/validator.yaml": {
+    "mtime": 1780473150.2008693,
+    "ast_hash": "d842116d4187c5ee18cbb8c196347767",
+    "semantic_hash": "d842116d4187c5ee18cbb8c196347767"
+  },
+  "/var/www/skills-api-symfony/config/packages/vich_uploader.yaml": {
+    "mtime": 1780474443.796867,
+    "ast_hash": "96d8733c739054cecba2ea7c21d40244",
+    "semantic_hash": "96d8733c739054cecba2ea7c21d40244"
+  },
+  "/var/www/skills-api-symfony/config/routes.yaml": {
+    "mtime": 1780646398.5441704,
+    "ast_hash": "065a9273118e8a6903b5cab3038159eb",
+    "semantic_hash": "065a9273118e8a6903b5cab3038159eb"
+  },
+  "/var/www/skills-api-symfony/config/routes/api_platform.yaml": {
+    "mtime": 1780474445.840867,
+    "ast_hash": "bba66174e3bd6a1be88a72286ba09057",
+    "semantic_hash": "bba66174e3bd6a1be88a72286ba09057"
+  },
+  "/var/www/skills-api-symfony/config/routes/framework.yaml": {
+    "mtime": 1780474975.7288647,
+    "ast_hash": "0209eec2eef3ff5479f346528d8b4c7d",
+    "semantic_hash": "0209eec2eef3ff5479f346528d8b4c7d"
+  },
+  "/var/www/skills-api-symfony/config/routes/security.yaml": {
+    "mtime": 1780474975.7768648,
+    "ast_hash": "112f10b281f54bd4e8899f4bff4910ee",
+    "semantic_hash": "112f10b281f54bd4e8899f4bff4910ee"
+  },
+  "/var/www/skills-api-symfony/config/serializer/category.serializer_groups.yaml": {
+    "mtime": 1780475557.1248684,
+    "ast_hash": "b746798dadc5a5b2ac11e454250a9cca",
+    "semantic_hash": "b746798dadc5a5b2ac11e454250a9cca"
+  },
+  "/var/www/skills-api-symfony/config/serializer/product.serializer_groups.yaml": {
+    "mtime": 1780475556.5408683,
+    "ast_hash": "2913df5f70e78336a8a1c6a49e711c62",
+    "semantic_hash": "2913df5f70e78336a8a1c6a49e711c62"
+  },
+  "/var/www/skills-api-symfony/config/serializer/user.serializer_groups.yaml": {
+    "mtime": 1780474450.084867,
+    "ast_hash": "73e648874b9e37e8912036157ab920ca",
+    "semantic_hash": "73e648874b9e37e8912036157ab920ca"
+  },
+  "/var/www/skills-api-symfony/config/services.yaml": {
+    "mtime": 1780475553.8288686,
+    "ast_hash": "19d2a3e1f41b1e734583d05be7e26868",
+    "semantic_hash": "19d2a3e1f41b1e734583d05be7e26868"
+  },
+  "/var/www/skills-api-symfony/references/api-resources.md": {
+    "mtime": 1780474453.5168672,
+    "ast_hash": "7a7b90b2a03bea18a356ea0fc94538f2",
+    "semantic_hash": "7a7b90b2a03bea18a356ea0fc94538f2"
+  },
+  "/var/www/skills-api-symfony/references/bootstrap-symfony.md": {
+    "mtime": 1780474788.5888662,
+    "ast_hash": "d935738f6ff20e5c27ff742c8738f9b0",
+    "semantic_hash": "d935738f6ff20e5c27ff742c8738f9b0"
+  },
+  "/var/www/skills-api-symfony/references/bootstrap.md": {
+    "mtime": 1780474451.4928672,
+    "ast_hash": "d935738f6ff20e5c27ff742c8738f9b0",
+    "semantic_hash": "d935738f6ff20e5c27ff742c8738f9b0"
+  },
+  "/var/www/skills-api-symfony/references/jwt.md": {
+    "mtime": 1780474452.7688673,
+    "ast_hash": "b01197e4aedbf920b9d254a1258ffb0f",
+    "semantic_hash": "b01197e4aedbf920b9d254a1258ffb0f"
+  },
+  "/var/www/skills-api-symfony/references/security.md": {
+    "mtime": 1780474453.112867,
+    "ast_hash": "d5f5647a4ada6fe7f30978d261f05215",
+    "semantic_hash": "d5f5647a4ada6fe7f30978d261f05215"
+  },
+  "/var/www/skills-api-symfony/references/serializer-groups.md": {
+    "mtime": 1780474454.2088673,
+    "ast_hash": "0988ea6c1f642da3f363b76bee1baa13",
+    "semantic_hash": "0988ea6c1f642da3f363b76bee1baa13"
+  },
+  "/var/www/skills-api-symfony/references/uploads.md": {
+    "mtime": 1780474454.6608675,
+    "ast_hash": "2c39817937b843dcf5ced4e6bb6beadf",
+    "semantic_hash": "2c39817937b843dcf5ced4e6bb6beadf"
+  }
+}

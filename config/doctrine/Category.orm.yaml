@@ -1,0 +1,29 @@
+App\Entity\Category:
+    type: entity
+    table: category
+    repositoryClass: App\Repository\CategoryRepository
+    uniqueConstraints:
+        uniq_category_name:
+            columns: [name]
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 150
+        description:
+            type: text
+            nullable: true
+        isActive:
+            type: boolean
+        createdAt:
+            type: datetime_immutable
+    oneToMany:
+        products:
+            targetEntity: App\Entity\Product
+            mappedBy: category
+            cascade: ['persist']
+            orphanRemoval: false

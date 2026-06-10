@@ -1,0 +1,53 @@
+parameters:
+    app.name: 'Symfony Baseline'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: ['controller.service_arguments']
+
+    app.api_platform.filter.user.search:
+        class: ApiPlatform\Doctrine\Orm\Filter\SearchFilter
+        arguments:
+            $properties:
+                email: ipartial
+                firstName: ipartial
+                lastName: ipartial
+                roles: exact
+        tags: ['api_platform.filter']
+
+    app.api_platform.filter.user.order:
+        class: ApiPlatform\Doctrine\Orm\Filter\OrderFilter
+        arguments:
+            $properties:
+                createdAt: desc
+                email: asc
+        tags: ['api_platform.filter']
+
+    app.api_platform.filter.product.order:
+        class: ApiPlatform\Doctrine\Orm\Filter\OrderFilter
+        arguments:
+            $properties:
+                createdAt: desc
+                name: asc
+                price: asc
+        tags: ['api_platform.filter']
+
+    app.api_platform.filter.category.order:
+        class: ApiPlatform\Doctrine\Orm\Filter\OrderFilter
+        arguments:
+            $properties:
+                name: asc
+                createdAt: desc
+        tags: ['api_platform.filter']

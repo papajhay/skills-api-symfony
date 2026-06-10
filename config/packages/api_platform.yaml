@@ -1,0 +1,30 @@
+api_platform:
+    title: Skills API
+    description: 'REST API for managing users, products, and categories in the blog platform.'
+    version: 1.0.0
+    formats:
+        jsonld: ['application/ld+json']
+        json: ['application/json']
+    defaults:
+        stateless: true
+        cache_headers:
+            vary: ['Content-Type', 'Authorization', 'Origin']
+    mapping:
+        paths:
+            - '%kernel.project_dir%/config/api_platform/resources'
+    openapi:
+        contact:
+            name: API Support
+            email: support@example.com
+
+            
+        swagger_ui_extra_configuration:
+            docExpansion: list
+            displayRequestDuration: true
+
+ 
+    swagger:
+        api_keys:
+            JWT:
+                name: Authorization
+                type: header

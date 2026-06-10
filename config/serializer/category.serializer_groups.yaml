@@ -1,0 +1,14 @@
+App\Entity\Category:
+    attributes:
+        id:
+            groups: ['category:read']
+        name:
+            groups: ['category:read', 'category:write']
+        description:
+            groups: ['category:read', 'category:write']
+        isActive:
+            groups: ['category:read', 'category:write']
+        createdAt:
+            groups: ['category:read']
+        products:
+            groups: ['category:read', 'category:write']

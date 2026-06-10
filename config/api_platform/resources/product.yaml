@@ -1,0 +1,25 @@
+resources:
+    App\Entity\Product:
+        class: App\Entity\Product
+        operations:
+            ApiPlatform\Metadata\GetCollection:
+                filters: ['app.api_platform.filter.product.order']
+                security: "is_granted('ROLE_USER')"
+            ApiPlatform\Metadata\Get:
+                security: "is_granted('ROLE_USER')"
+            ApiPlatform\Metadata\Post:
+                security: "is_granted('ROLE_ADMIN')"
+            ApiPlatform\Metadata\Patch:
+                security: "is_granted('ROLE_ADMIN')"
+            ApiPlatform\Metadata\Delete:
+                security: "is_granted('ROLE_ADMIN')"
+        paginationEnabled: true
+        normalizationContext:
+            groups: ['product:read']
+        denormalizationContext:
+            groups: ['product:write']
+properties:
+    App\Entity\Product:
+        category:
+            readableLink: false
+            writableLink: false

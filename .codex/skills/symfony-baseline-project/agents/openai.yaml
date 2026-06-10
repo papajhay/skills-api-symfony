@@ -1,0 +1,4 @@
+interface:
+  display_name: "Symfony Baseline Project"
+  short_description: "Classic Symfony 7 web app setup"
+  default_prompt: "Use $symfony-baseline-project to scaffold a classic Symfony 7 web app with Twig, Doctrine ORM, MySQL, and YAML config."

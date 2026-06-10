@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+use App\Kernel;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+
+require dirname(__DIR__).'/config/bootstrap.php';
+
+$input = new ArgvInput();
+$environment = $input->getParameterOption(['--env', '-e'], $_SERVER['APP_ENV'], true);
+$debug = (bool) $_SERVER['APP_DEBUG'];
+
+$kernel = new Kernel($environment, $debug);
+$application = new Application($kernel);
+$application->run($input);

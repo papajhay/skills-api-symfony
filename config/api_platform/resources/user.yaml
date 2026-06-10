@@ -1,0 +1,21 @@
+resources:
+    App\Entity\User:
+        class: App\Entity\User
+        operations:
+            ApiPlatform\Metadata\GetCollection:
+                filters: ['app.api_platform.filter.user.search', 'app.api_platform.filter.user.order']
+                security: "is_granted('IS_AUTHENTICATED_FULLY')"
+            ApiPlatform\Metadata\Get:
+                security: "is_granted('IS_AUTHENTICATED_FULLY')"
+            ApiPlatform\Metadata\Post:
+                security: "is_granted('ROLE_API_USER') or is_granted('ROLE_SUPER_ADMIN')"
+            ApiPlatform\Metadata\Put:
+                security: "is_granted('ROLE_API_USER') or is_granted('ROLE_SUPER_ADMIN')"
+            ApiPlatform\Metadata\Patch:
+                security: "is_granted('ROLE_API_USER') or is_granted('ROLE_SUPER_ADMIN')"
+            ApiPlatform\Metadata\Delete:
+                security: "is_granted('ROLE_API_USER') or is_granted('ROLE_SUPER_ADMIN')"
+        normalizationContext:
+            groups: ['read']
+        denormalizationContext:
+            groups: ['write']
