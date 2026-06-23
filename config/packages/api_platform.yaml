@@ -9,6 +9,9 @@ api_platform:
         stateless: true
         cache_headers:
             vary: ['Content-Type', 'Authorization', 'Origin']
+    exception_to_status:
+        Symfony\Component\Serializer\Exception\UnexpectedValueException: 400
+        Doctrine\DBAL\Exception\UniqueConstraintViolationException: 400
     mapping:
         paths:
             - '%kernel.project_dir%/config/api_platform/resources'

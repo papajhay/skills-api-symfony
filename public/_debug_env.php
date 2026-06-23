@@ -1,0 +1,20 @@
+<?php
+header('Content-Type: text/plain');
+var_export(getenv('PHP_INI_SCAN_DIR'));
+echo "\n";
+var_export(getenv('PHP_INI'));
+echo "\n";
+var_export(getenv('PHPRC'));
+echo "\n";
+var_export(getenv('PATH'));
+echo "\n";
+var_export(getenv('SYMFONY_PHP'));
+echo "\n";
+var_export(getenv('PATH'));
+echo "\n";
+var_export($_SERVER['PHP_INI_SCAN_DIR'] ?? null);
+echo "\n";
+var_export($_SERVER['PHP_INI'] ?? null);
+echo "\n";
+var_export($_SERVER['PHPRC'] ?? null);
+echo "\n";
