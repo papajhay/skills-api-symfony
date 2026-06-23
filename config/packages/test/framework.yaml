@@ -1,0 +1,4 @@
+framework:
+    handle_all_throwables: false
+    php_errors:
+        log: false

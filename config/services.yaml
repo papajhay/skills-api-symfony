@@ -51,3 +51,15 @@ services:
                 name: asc
                 createdAt: desc
         tags: ['api_platform.filter']
+
+when@test:
+    services:
+        Psr\Log\NullLogger: ~
+
+        Psr\Log\LoggerInterface:
+            alias: Psr\Log\NullLogger
+            public: true
+
+        logger:
+            alias: Psr\Log\NullLogger
+            public: true

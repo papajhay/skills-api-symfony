@@ -1,0 +1,8 @@
+services:
+    Psr\Log\LoggerInterface:
+        alias: Psr\Log\NullLogger
+        public: true
+
+    logger:
+        alias: Psr\Log\NullLogger
+        public: true
