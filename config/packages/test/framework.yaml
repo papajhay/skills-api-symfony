@@ -1,4 +1,5 @@
 framework:
+    test: true
     handle_all_throwables: false
     php_errors:
         log: false
