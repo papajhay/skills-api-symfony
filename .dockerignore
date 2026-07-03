@@ -1,0 +1,7 @@
+.agents
+.git
+.phpunit.cache
+graphify-out
+node_modules
+var
+vendor

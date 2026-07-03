@@ -4,9 +4,14 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 #[ORM\Table(name: 'product')]
+#[UniqueEntity(
+    fields: ['sku'],
+    message: 'This SKU already exists.'
+)]
 class Product
 {
     #[ORM\Id]
