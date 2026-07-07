@@ -4,7 +4,7 @@ Symfony 7 API Platform application running on PHP-FPM, Nginx, and PostgreSQL.
 
 ## Stack
 
-- PHP 8.3-FPM
+- PHP 8.2-FPM
 - Nginx
 - PostgreSQL 16
 - API Platform 4

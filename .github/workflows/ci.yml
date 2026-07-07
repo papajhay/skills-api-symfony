@@ -1,0 +1,132 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  COMPOSE_FILE: compose.yaml
+  COMPOSE_PROJECT_NAME: skills-api-ci
+  PHP_IMAGE: skills-api-ci-php
+  COMPOSER_CACHE_DIR: /tmp/composer-cache
+  TEST_DATABASE_URL: postgresql://app:app@database:5432/app_test?serverVersion=16&charset=utf8
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore Composer cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/composer-cache
+          key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            composer-${{ runner.os }}-
+
+      - name: Restore Docker build cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/.buildx-cache
+          key: buildx-${{ runner.os }}-${{ hashFiles('Dockerfile', 'compose.yaml', 'docker/php/**', 'composer.json', 'composer.lock') }}
+          restore-keys: |
+            buildx-${{ runner.os }}-
+
+      - name: Prepare BuildKit
+        run: |
+          docker buildx create --name ci-builder --use >/dev/null 2>&1 || docker buildx use ci-builder
+          docker buildx inspect --bootstrap
+
+      - name: Remove stale project containers
+        run: |
+          docker rm -f skills_api_php skills_api_nginx skills_api_database >/dev/null 2>&1 || true
+
+      - name: Build PHP image
+        run: |
+          docker buildx build \
+            --file Dockerfile \
+            --tag "${PHP_IMAGE}" \
+            --load \
+            --cache-from type=local,src=/tmp/.buildx-cache \
+            --cache-to type=local,dest=/tmp/.buildx-cache-new,mode=max \
+            .
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+
+      - name: Start PostgreSQL
+        run: |
+          docker compose -f "${COMPOSE_FILE}" up -d database
+
+      - name: Wait for PostgreSQL
+        run: |
+          until docker compose -f "${COMPOSE_FILE}" exec -T database sh -lc 'pg_isready -U "$POSTGRES_USER" -d app_test >/dev/null 2>&1'; do
+            sleep 2
+          done
+
+      - name: Install Composer dependencies
+        run: |
+          docker compose -f "${COMPOSE_FILE}" run \
+            --rm \
+            --no-deps \
+            --entrypoint sh \
+            -v /tmp/composer-cache:/tmp/composer-cache \
+            -e COMPOSER_CACHE_DIR=/tmp/composer-cache \
+            -e COMPOSER_PROCESS_TIMEOUT=0 \
+            php \
+            -lc 'composer install --no-interaction --prefer-dist --no-progress --ansi'
+
+      - name: Start application services
+        run: |
+          docker compose -f "${COMPOSE_FILE}" up -d --no-build php
+
+      - name: Doctrine migrations
+        run: |
+          docker compose -f "${COMPOSE_FILE}" exec -T \
+            -e APP_ENV=test \
+            -e APP_DEBUG=0 \
+            -e DATABASE_URL="${TEST_DATABASE_URL}" \
+            php \
+            php bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration
+
+      - name: Symfony verification commands
+        run: |
+          docker compose -f "${COMPOSE_FILE}" exec -T \
+            -e APP_ENV=test \
+            -e APP_DEBUG=0 \
+            -e DATABASE_URL="${TEST_DATABASE_URL}" \
+            php \
+            php bin/console lint:yaml config --parse-tags
+
+          docker compose -f "${COMPOSE_FILE}" exec -T \
+            -e APP_ENV=test \
+            -e APP_DEBUG=0 \
+            -e DATABASE_URL="${TEST_DATABASE_URL}" \
+            php \
+            php bin/console lint:twig templates
+
+          docker compose -f "${COMPOSE_FILE}" exec -T \
+            -e APP_ENV=test \
+            -e APP_DEBUG=0 \
+            -e DATABASE_URL="${TEST_DATABASE_URL}" \
+            php \
+            php bin/console lint:container
+
+          docker compose -f "${COMPOSE_FILE}" exec -T \
+            -e APP_ENV=test \
+            -e APP_DEBUG=0 \
+            -e DATABASE_URL="${TEST_DATABASE_URL}" \
+            php \
+            php bin/console doctrine:schema:validate
+
+      - name: Shutdown stack
+        if: always()
+        run: |
+          docker compose -f "${COMPOSE_FILE}" down -v --remove-orphans
