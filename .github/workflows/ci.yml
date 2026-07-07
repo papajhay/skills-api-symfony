@@ -24,10 +24,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 #v4.1
 
       - name: Restore Composer cache
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 #v4.0
         with:
           path: /tmp/composer-cache
           key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
@@ -35,7 +35,7 @@ jobs:
             composer-${{ runner.os }}-
 
       - name: Restore Docker build cache
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 #v4.0
         with:
           path: /tmp/.buildx-cache
           key: buildx-${{ runner.os }}-${{ hashFiles('Dockerfile', 'compose.yaml', 'docker/php/**', 'composer.json', 'composer.lock') }}
@@ -138,10 +138,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 #v4.1
 
       - name: Restore Composer cache
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 #v4.0
         with:
           path: /tmp/composer-cache
           key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
@@ -149,7 +149,7 @@ jobs:
             composer-${{ runner.os }}-
 
       - name: Restore Docker build cache
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 #v4.0
         with:
           path: /tmp/.buildx-cache
           key: buildx-${{ runner.os }}-${{ hashFiles('Dockerfile', 'compose.yaml', 'docker/php/**', 'composer.json', 'composer.lock') }}
