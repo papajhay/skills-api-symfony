@@ -219,6 +219,7 @@ jobs:
             -e APP_DEBUG=0 \
             -e DATABASE_URL="${TEST_DATABASE_URL}" \
             php \
+            bin/console lexik:jwt:generate-keypair --overwrite --no-interaction && \
             vendor/bin/phpunit -c phpunit.dist.xml
 
       - name: Shutdown stack
