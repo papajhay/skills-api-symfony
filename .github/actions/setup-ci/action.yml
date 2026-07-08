@@ -1,0 +1,121 @@
+name: Setup CI
+description: Prepare the Docker-based Symfony test environment for CI jobs.
+
+inputs:
+  compose-file:
+    description: Docker Compose file to use.
+    required: false
+    default: compose.yaml
+  php-image:
+    description: Tag used for the CI PHP image.
+    required: false
+    default: skills-api-ci-php
+  composer-cache-dir:
+    description: Directory used for Composer cache restoration and reuse.
+    required: false
+    default: /tmp/composer-cache
+  buildx-cache-dir:
+    description: Directory used for BuildKit cache restoration and reuse.
+    required: false
+    default: /tmp/.buildx-cache
+  test-database-url:
+    description: Database URL used for migrations and runtime checks.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Restore Composer cache
+      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.0
+      with:
+        path: ${{ inputs.composer-cache-dir }}
+        key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+        restore-keys: |
+          composer-${{ runner.os }}-
+
+    - name: Restore Docker build cache
+      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.0
+      with:
+        path: ${{ inputs.buildx-cache-dir }}
+        key: buildx-${{ runner.os }}-${{ hashFiles('Dockerfile', inputs.compose-file, 'docker/php/**', 'composer.json', 'composer.lock') }}
+        restore-keys: |
+          buildx-${{ runner.os }}-
+
+    - name: Prepare BuildKit
+      shell: bash
+      run: |
+        docker buildx create --name ci-builder --use >/dev/null 2>&1 || docker buildx use ci-builder
+        docker buildx inspect --bootstrap
+
+    - name: Remove stale project containers
+      shell: bash
+      run: |
+        docker rm -f skills_api_php skills_api_database >/dev/null 2>&1 || true
+
+    - name: Build PHP image
+      shell: bash
+      env:
+        PHP_IMAGE: ${{ inputs.php-image }}
+        BUILDX_CACHE_DIR: ${{ inputs.buildx-cache-dir }}
+      run: |
+        docker buildx build \
+          --file Dockerfile \
+          --tag "${PHP_IMAGE}" \
+          --load \
+          --cache-from type=local,src="${BUILDX_CACHE_DIR}" \
+          --cache-to type=local,dest="${BUILDX_CACHE_DIR}-new",mode=max \
+          .
+        rm -rf "${BUILDX_CACHE_DIR}"
+        mv "${BUILDX_CACHE_DIR}-new" "${BUILDX_CACHE_DIR}"
+
+    - name: Start PostgreSQL
+      shell: bash
+      env:
+        COMPOSE_FILE: ${{ inputs.compose-file }}
+      run: |
+        docker compose -f "${COMPOSE_FILE}" up -d database
+
+    - name: Wait for PostgreSQL
+      shell: bash
+      env:
+        COMPOSE_FILE: ${{ inputs.compose-file }}
+      run: |
+        until docker compose -f "${COMPOSE_FILE}" exec -T database sh -lc 'pg_isready -U "$POSTGRES_USER" -d app_test >/dev/null 2>&1'; do
+          sleep 2
+        done
+
+    - name: Install Composer dependencies
+      shell: bash
+      env:
+        COMPOSE_FILE: ${{ inputs.compose-file }}
+        COMPOSER_CACHE_DIR: ${{ inputs.composer-cache-dir }}
+      run: |
+        docker compose -f "${COMPOSE_FILE}" run \
+          --rm \
+          --no-deps \
+          --entrypoint sh \
+          -v "${COMPOSER_CACHE_DIR}:${COMPOSER_CACHE_DIR}" \
+          -e COMPOSER_CACHE_DIR="${COMPOSER_CACHE_DIR}" \
+          -e COMPOSER_PROCESS_TIMEOUT=0 \
+          php \
+          -lc 'composer install --no-interaction --prefer-dist --no-progress --ansi'
+
+    - name: Start application services
+      shell: bash
+      env:
+        COMPOSE_FILE: ${{ inputs.compose-file }}
+      run: |
+        docker compose -f "${COMPOSE_FILE}" up -d --no-build php
+
+    - name: Doctrine migrations
+      shell: bash
+      env:
+        COMPOSE_FILE: ${{ inputs.compose-file }}
+        TEST_DATABASE_URL: ${{ inputs.test-database-url }}
+      run: |
+        docker compose -f "${COMPOSE_FILE}" exec -T \
+          -e APP_ENV=test \
+          -e APP_DEBUG=0 \
+          -e DATABASE_URL="${TEST_DATABASE_URL}" \
+          php \
+          php bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration
