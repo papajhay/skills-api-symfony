@@ -1,0 +1,21 @@
+# Deploy the application to Render after the CI workflow completes successfully.
+name: Deploy to Render
+
+on:
+  # Listen for completed runs of the workflow named "CI".
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+
+jobs:
+  deploy:
+    # Only deploy when the completed CI workflow succeeded.
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      # Call Render's deploy hook to start a new deployment.
+      - name: Trigger Render deployment
+        run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
