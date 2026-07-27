@@ -1,11 +1,10 @@
 # Symfony API Platform Docker Stack
 
-Symfony 7 API Platform application running on PHP-FPM, Nginx, and PostgreSQL.
+Symfony 7 API Platform application running on FrankenPHP and PostgreSQL.
 
 ## Stack
 
-- PHP 8.2-FPM
-- Nginx
+- FrankenPHP (PHP 8.2)
 - PostgreSQL 16
 - API Platform 4
 - Doctrine ORM and Doctrine Migrations
@@ -16,7 +15,7 @@ Symfony 7 API Platform application running on PHP-FPM, Nginx, and PostgreSQL.
 
 ```text
 docker/
-  nginx/
+  Caddyfile
   php/
 config/
   api_platform/
@@ -131,6 +130,5 @@ If you already started the stack before adding this init script, recreate the da
 
 ## Notes
 
-- The PHP container keeps `vendor/` and `var/` in named volumes so bind-mounting the project does not wipe dependencies or cache.
-- The Nginx container serves `public/` and forwards PHP requests to the PHP-FPM container.
+- The FrankenPHP container keeps `vendor/`, `var/`, and Caddy state in named volumes so bind-mounting the project does not wipe dependencies or cache.
 - If Docker Engine is installed directly in WSL Ubuntu, do not also start Docker Desktop with WSL integration for the same distribution.

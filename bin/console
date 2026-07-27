@@ -8,8 +8,12 @@ use Symfony\Component\Console\Input\ArgvInput;
 require dirname(__DIR__).'/config/bootstrap.php';
 
 $input = new ArgvInput();
-$environment = $input->getParameterOption(['--env', '-e'], $_SERVER['APP_ENV'], true);
-$debug = (bool) $_SERVER['APP_DEBUG'];
+$environment = $input->getParameterOption(
+    ['--env', '-e'],
+    $_SERVER['APP_ENV'] ?? 'dev',
+    true
+) ?? ($_SERVER['APP_ENV'] ?? 'dev');
+$debug = (bool) ($_SERVER['APP_DEBUG'] ?? false);
 
 $kernel = new Kernel($environment, $debug);
 $application = new Application($kernel);
