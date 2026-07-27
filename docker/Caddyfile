@@ -1,0 +1,19 @@
+{
+	# Keep the Caddy admin endpoint local to the container.
+	admin localhost:2019
+}
+
+:80 {
+	root * /app/public
+
+	# Compress responses served by Caddy.
+	encode zstd gzip
+
+	# Symfony front controller and static files.
+	php_server
+
+	# Limit request bodies to the application's upload size.
+	request_body {
+		max_size 20MB
+	}
+}

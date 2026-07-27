@@ -1,25 +1,34 @@
-FROM php:8.2-fpm-bookworm
+FROM dunglas/frankenphp:php8.2
 
-ARG COMPOSER_VERSION=2
+WORKDIR /app
 
-WORKDIR /var/www/html
+# Keep the extensions used by the Symfony application.
+RUN install-php-extensions \
+        intl \
+        opcache \
+        pdo_pgsql \
+        xml \
+        zip
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        git \
-        libicu-dev \
-        libpq-dev \
-        libxml2-dev \
-        libzip-dev \
-        unzip \
-    && docker-php-ext-install intl opcache pdo_pgsql xml zip \
-    && rm -rf /var/lib/apt/lists/*
-
+# Composer is copied from the official Composer image; no second PHP runtime
+# or PHP-FPM process is installed.
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+
 COPY docker/php/conf.d/99-app.ini /usr/local/etc/php/conf.d/99-app.ini
-COPY docker/php/entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY docker/Caddyfile /etc/caddy/Caddyfile
 
-RUN chmod +x /usr/local/bin/entrypoint.sh
+COPY . /app
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["php-fpm"]
+RUN composer install \
+        --no-interaction \
+        --prefer-dist \
+        --no-progress \
+        --optimize-autoloader
+
+RUN setcap -r /usr/local/bin/frankenphp
+ 
+RUN chmod +x /usr/local/bin/frankenphp
+
+EXPOSE 80
+
+CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]
