@@ -13,7 +13,7 @@ jobs:
   deploy:
     # Only deploy when the completed CI workflow succeeded.
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       # Call Render's deploy hook to start a new deployment.

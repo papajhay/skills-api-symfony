@@ -20,7 +20,7 @@ env:
 
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
@@ -71,7 +71,7 @@ jobs:
           docker compose -f "${COMPOSE_FILE}" down -v --remove-orphans
 
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: ci
 
     steps:
